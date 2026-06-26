@@ -1,5 +1,5 @@
 {
-  "name": "Android Cloud Build Container",
+  "name": "Android Cloud Development Environment",
   "image": "mcr.microsoft.com/devcontainers/java:21",
   "customizations": {
     "vscode": {
