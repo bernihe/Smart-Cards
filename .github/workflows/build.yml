@@ -32,6 +32,13 @@ jobs:
       - name: Initialize Missing Gradle Scripts (Rule 3)
         run: gradle wrapper --gradle-version 9.4.1
 
+      - name: Generate Dynamic Debug Keystore Signature
+        run: |
+          keytool -genkey -v -keystore debug.keystore \
+            -storepass android -alias androiddebugkey -keypass android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US"
+
       - name: Ensure Script Permissions
         run: chmod +x gradlew
 
