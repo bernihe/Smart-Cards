@@ -1,0 +1,6 @@
+{
+  "name": "SmartCard",
+  "description": "SmartCard is an AI-powered personal organizer app that lets users save travel plans, projects, and ideas as visual cards neatly categorized into folders.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
