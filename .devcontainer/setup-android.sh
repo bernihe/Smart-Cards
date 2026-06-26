@@ -26,7 +26,13 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-
 echo "==> Step 4: Structuring Missing Gradle Wrapper Execution Script..."
 gradle wrapper --gradle-version 9.4.1
 
-echo "==> Step 5: Resolving Target Framework Elements (Target SDK 36)..."
+echo "==> Step 5: Generating Dynamic Debug Keystore Signature..."
+keytool -genkey -v -keystore debug.keystore \
+  -storepass android -alias androiddebugkey -keypass android \
+  -keyalg RSA -keysize 2048 -validity 10000 \
+  -dname "CN=Android Debug,O=Android,C=US"
+
+echo "==> Step 6: Resolving Target Framework Elements (Target SDK 36)..."
 sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
 chmod +x gradlew
